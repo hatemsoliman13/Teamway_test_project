@@ -77,7 +77,7 @@ def update(request):
             data["date"], "%d-%m-%Y").date()
 
         request_validator = RequestValidator(
-            data, ShiftsConfig.validation_rules[create.__name__])
+            data, ShiftsConfig.validation_rules[update.__name__])
         request_validator.validate_data()
 
         worker_service = WorkerService()
@@ -119,7 +119,7 @@ def details(request):
         data = json.loads(request.body)
 
         request_validator = RequestValidator(
-            data, ShiftsConfig.validation_rules[create.__name__])
+            data, ShiftsConfig.validation_rules[details.__name__])
         request_validator.validate_data()
 
         shift_service = ShiftService()
@@ -146,7 +146,7 @@ def delete(request):
         data = json.loads(request.body)
 
         request_validator = RequestValidator(
-            data, ShiftsConfig.validation_rules[create.__name__])
+            data, ShiftsConfig.validation_rules[delete.__name__])
         request_validator.validate_data()
 
         shift_service = ShiftService()
