@@ -26,7 +26,7 @@ def create(request):
     try:
         data = json.loads(request.body)
         request_validator = RequestValidator(
-            data, WorkersConfig.validation_rules[create.__name])
+            data, WorkersConfig.validation_rules[create.__name__])
         request_validator.validate_data()
 
         worker_service = WorkerService()
